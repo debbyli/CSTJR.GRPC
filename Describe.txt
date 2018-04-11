@@ -1,0 +1,13 @@
+/********说明文件****************/
+Nuget包
+1.框架依赖包
+---   Install-Package Grpc
+---   Install-Package Google.Protobuf
+
+2.工具依赖包
+
+---   Install-Package Grpc.Tools
+
+3.根据*.proto文件生成代码（注:在CSTJR.RPC.Tools 根目录下,请注意工具版本）
+  说明：--plugin，指的生成代码类型的插件 
+packages\Grpc.Tools.1.10.1\tools\windows_x86\protoc.exe -ICSTJR.RPC.Tools --csharp_out CSTJR.RPC.Tools  CSTJR.RPC.Tools\Message.proto --grpc_out CSTJR.RPC.Tools --plugin=protoc-gen-grpc=packages\Grpc.Tools.1.10.1\tools\windows_x86\grpc_csharp_plugin.exe
