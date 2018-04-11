@@ -1,0 +1,26 @@
+syntax = "proto3";
+package CSTJR.RPC.Message.Contracts;
+service MessageService {
+  rpc SendMessage (SendMessageRequest) returns (SendMessageReply) {}
+  rpc SendTaskMessage(SendTaskRequest) returns(SendTaskReply){}
+}
+
+message SendMessageRequest {
+  int32 Category=1;
+  string FromUser = 2;
+  string ToUser = 3;
+  repeated string ActionList = 4;
+  repeated string MessageList=5;
+}
+
+message SendMessageReply {
+  bool flag = 1;
+}
+
+message SendTaskRequest{}
+
+message SendTaskReply{
+    int32 successCount=1;
+	int32 errCount=2;
+	string errMsg=3;
+}
